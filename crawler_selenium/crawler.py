@@ -17,10 +17,24 @@ with open("links.csv", "w") as links:
     s1.select_by_visible_text('2018')
     s2 = Select(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[1]/section[2]/div/div/select[2]"""))
     s2.select_by_visible_text('2018')
-    #WebDriverWait(driver,20).until(EC.presence_of_element_located((By.CSS_SELECTOR, """#cmn_wrap > div.content-container > div.content > section.results > div.desktop-results > table > tbody""")))
-    time.sleep(5)
-    table = driver.find_element_by_css_selector("""#cmn_wrap > div.content-container > div.content > section.results > div.desktop-results > table > tbody""")
-    rows = table.find_elements(By.TAG_NAME, "tr")
-    for row in rows:
-        links.write((row.find_element(By.CSS_SELECTOR, "td.title > a").get_attribute('href') + "\n"))
-    driver.quit()
+    counter = 1
+    while True:
+        try:
+            time.sleep(5)
+            WebDriverWait(driver,20).until(EC.presence_of_element_located((By.CSS_SELECTOR, """#cmn_wrap > div.content-container > div.content > section.results > div.desktop-results > table > tbody""")))
+            table = driver.find_element_by_css_selector("""#cmn_wrap > div.content-container > div.content > section.results > div.desktop-results > table > tbody""")
+            rows = table.find_elements(By.TAG_NAME, "tr")
+            for row in rows:
+                links.write((row.find_element(By.CSS_SELECTOR, "td.title > a").get_attribute('href') + "\n"))
+            elem = driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[2]/section[2]/div[3]/div""")
+            elem_childs = elem.find_elements_by_css_selector("*")
+            if "Next" in str(elem_childs[len(elem_childs) - 1].get_attribute('innerHTML')):
+                counter = counter + 1
+                print("next page " + str(counter))
+                elem = elem_childs[len(elem_childs) - 1].click()
+            else:
+                print("all done!")
+                break
+        except Exception as e:
+            print("Error: {0}".format(e))
+            break
