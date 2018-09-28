@@ -14,9 +14,29 @@ with open("links.csv", "w") as links:
     #WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, """//*[@id="qcCmpButtons"]/button[2]""")))
     driver.find_element_by_xpath("""//*[@id="qcCmpButtons"]/button[2]""").click()
     s1 = Select(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[1]/section[2]/div/div/select[1]"""))
-    s1.select_by_visible_text('2018')
+    s1.select_by_visible_text('2000')
     s2 = Select(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[1]/section[2]/div/div/select[2]"""))
-    s2.select_by_visible_text('2018')
+    s2.select_by_visible_text('2000')
+    time.sleep(5)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:9"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:8"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:7"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:6"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:5"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:4"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:3"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:2"]""")
+    driver.execute_script("arguments[0].click();", elem)
+    time.sleep(1)
+    elem = driver.find_element_by_xpath("""//*[@id="editorialrating:1"]""")
+    driver.execute_script("arguments[0].click();", elem)
     counter = 1
     while True:
         try:
@@ -31,7 +51,8 @@ with open("links.csv", "w") as links:
             if "Next" in str(elem_childs[len(elem_childs) - 1].get_attribute('innerHTML')):
                 counter = counter + 1
                 print("next page " + str(counter))
-                elem = elem_childs[len(elem_childs) - 1].click()
+                elem = elem_childs[len(elem_childs) - 1]
+                driver.execute_script("arguments[0].click();", elem)
             else:
                 print("all done!")
                 break
