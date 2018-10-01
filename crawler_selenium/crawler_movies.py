@@ -19,8 +19,15 @@ def setupBrowser(driver):
     driver.find_element_by_xpath("""//*[@id="qcCmpButtons"]/button[1]""").click()
     time.sleep(1)
 
-def processElement(element):
-    return str(element.text).strip().replace(",","")
+def trimDetail(detailText):
+    return str(detailText.replace("|","").replace(",","").strip())
+
+def processElement(cssSelector):
+    try:
+        element = driver.find_element(By.CSS_SELECTOR,cssSelector).text
+        return str(element.replace(",","").strip())
+    except Exception:
+        return ""
 
 def processLink(link):
     link = link[:-1]
@@ -28,10 +35,63 @@ def processLink(link):
     driver.get(link)
     time.sleep(1)
     try:
-        title = processElement(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[2]/header/hgroup[1]/h2"""))[:-7]
-        synopsis = processElement(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[2]/section[1]/div"""))
-        genres = processElement(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[2]/header/hgroup[2]/span[1]"""))[9:][:-3]
-        subGenres = processElement(driver.find_element_by_xpath("""//*[@id="cmn_wrap"]/div[1]/div[2]/header/hgroup[2]/span[2]"""))[13:][:-3]
+        title = trimDetail(driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > header > hgroup.movie-info > h2").text[:-7])
+        synopsis = trimDetail(driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section.review.read-more.synopsis > div").text)
+        allmovieRating = trimDetail(driver.find_element(By.CSS_SELECTOR,"#microdata-rating > div").text)
+        
+        #details
+
+        genres = ""
+        subGenres = ""
+        releaseDate = ""
+        duration = ""
+        countries = ""
+        mpaaRating = ""
+
+        movieDetails = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > header > hgroup.details")
+        movieDetails = movieDetails.find_elements(By.XPATH, "*")
+        for detail in movieDetails:
+            if "Sub-Genres" in detail.text:
+                subGenres = trimDetail(detail.text[13:])
+            elif "Genres" in detail.text:
+                genres = trimDetail(detail.text[9:])
+            elif "Release Date" in detail.text:
+                releaseDate = trimDetail(detail.text[15:])
+            elif "Run Time" in detail.text:
+                duration = trimDetail(detail.text[11:])[:-6]
+            elif "Countries" in detail.text:
+                countries = trimDetail(detail.text[12:])
+            elif "MPAA Rating" in detail.text:
+                mpaaRating = trimDetail(detail.text[14:])
+        
+        #print(title)
+        #print(genres)
+        #print(subGenres)
+        #print(releaseDate)
+        #print(duration)
+        #print(countries)
+        #print(mpaaRating)
+
+        directedBy = processElement("#movie-director-link")[12:]
+        producedBy = processElement("#cmn_wrap > div.content-container > div.sidebar > section.basic-info > div.produced-by")[12:]
+        releasedBy = processElement("#cmn_wrap > div.content-container > div.sidebar > section.basic-info > div.released-by")[12:]
+        flags = processElement("#cmn_wrap > div.content-container > div.sidebar > section.basic-info > div.flags")[6:]
+        
+        #print(directedBy)
+        #print(producedBy)
+        #print(releasedBy)
+        #print(flags)
+
+        moods = processElement("#cmn_wrap > div.content-container > div.content > section.characteristics > div.moods")[6:]
+        themes = processElement("#cmn_wrap > div.content-container > div.content > section.characteristics > div.themes")[7:]
+        keywords = processElement("#cmn_wrap > div.content-container > div.content > section.characteristics > div.keywords")[9:]
+        attributes = processElement("#cmn_wrap > div.content-container > div.content > section.characteristics > div.attributes")[11:]
+
+        #print(moods)
+        #print(themes)
+        #print(keywords)
+        #print(attributes)
+
         return link + "," + synopsis + "\n"
     except Exception as e:
         print("Error: {0}".format(e))
@@ -41,7 +101,6 @@ year = "2018"
 filePath = "../data/links_"+year+".csv"
 chromePath = r"C:\Users\Mario\Downloads\chromedriver_win32\chromedriver.exe"
 driver = webdriver.Chrome(chromePath)
-driver2 = webdriver.Chrome(chromePath)
 
 setupBrowser(driver)
 
@@ -51,7 +110,7 @@ with open(filePath, "r") as linksFile:
 
 for index, link in enumerate(links):
     if "," not in link:
-        links[index] = processLink("https://www.allmovie.com/movie/the-gospel-according-to-andr%C3%A9-v691868\n")
+        links[index] = processLink(link)
         #updateFile(filePath, links)
         break
     else:
