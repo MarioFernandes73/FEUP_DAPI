@@ -92,6 +92,18 @@ def processLink(link):
         #print(keywords)
         #print(attributes)
 
+        relatedMovies = ""
+
+        relatedMoviesElements = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section.related-highlights > div.related-movies.clearfix")
+        relatedMoviesElements = relatedMoviesElements.find_elements(By.XPATH, "*")
+        for relatedMovie in relatedMoviesElements:
+            try:
+                relatedMovies = relatedMovies + str(relatedMovie.find_element(By.CSS_SELECTOR, "div > img").get_attribute("alt")) + " | "
+            except Exception as e:
+                print("Error: {0}".format(e))
+
+        relatedMovies = relatedMovies[:-3]
+
         return link + "," + synopsis + "\n"
     except Exception as e:
         print("Error: {0}".format(e))
