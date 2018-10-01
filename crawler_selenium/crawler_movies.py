@@ -104,6 +104,22 @@ def processLink(link):
 
         relatedMovies = relatedMovies[:-3]
 
+        driver.get(link + "/cast-crew")
+        time.sleep(1)
+
+        actors = ""
+        castContainers = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(2)")
+        castContainers = castContainers.find_elements(By.CSS_SELECTOR, ".cast_container")
+        for castContainer in castContainers:
+            try:
+                actors = actors + str(castContainer.find_element(By.CSS_SELECTOR, ".artist-name").text) + " | "
+            except Exception as e:
+                print("Error: {0}".format(e))
+        
+        actors = actors[:-3]
+
+        print(actors)
+
         return link + "," + synopsis + "\n"
     except Exception as e:
         print("Error: {0}".format(e))
