@@ -89,21 +89,28 @@ def processLink(link):
             time.sleep(1)
 
             actors = ""
-            castFirstContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2")
-            castSecondContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(2) > h2")
-            if "Cast" in castFirstContainer.text:
-                castContainers = castFirstContainer
-            elif "Cast" in castSecondContainer.text:
-                castContainers = castSecondContainer
+            try:
+                castFirstContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2")
+                if "Cast" in castFirstContainer.text:
+                    castContainers = castFirstContainer
+                else:
+                    castSecondContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(2) > h2")
+                    if "Cast" in castSecondContainer.text:
+                        castContainers = castSecondContainer
 
-            castContainers = castContainers.find_elements(By.CSS_SELECTOR, ".cast_container")
-            for castContainer in castContainers:
-                try:
-                    actors = actors + str(castContainer.find_element(By.CSS_SELECTOR, ".artist-name").text).replace(",","").replace("\n"," ").strip() + " | "
-                except Exception as e:
-                    print("Error: {0}".format(e))
-                    errorlog.write(link + "\n" + "Error: {0}".format(e) + "\n\n\n\n")
-            
+                castContainers = castContainers.find_elements(By.CSS_SELECTOR, ".cast_container")
+                for castContainer in castContainers:
+                    try:
+                        actors = actors + str(castContainer.find_element(By.CSS_SELECTOR, ".artist-name").text).replace(",","").replace("\n"," ").strip() + " | "
+                    except Exception as e:
+                        print("Error: {0}".format(e))
+                        errorlog.write(link + "\n" + "Error: {0}".format(e) + "\n\n\n\n")
+
+            except Exception as e:
+                print("Error: {0}".format(e))
+                errorlog.write(link + "\n" + "Error: {0}".format(e) + " ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)\n\n\n\n")
+
+
             actors = actors[:-3]
             return link + ", " + title + ", " + genres + ", " + subGenres + ", " + releaseDate + ", " + duration + ", " + countries + ", " + mpaaRating + ", " + allmovieRating + ", " + flags + ", " + directedBy + ", " + producedBy + ", " + releasedBy + ", " + moods + ", " + themes + ", " + keywords + ", " + attributes + ", " +  synopsis + ", " + actors + ", " + relatedMovies + "\n"
         except Exception as e:
