@@ -116,7 +116,7 @@ def processLink(link):
         except Exception as e:
             print("Error: {0}".format(e))
             errorlog.write(link + "\n" + "Error: {0}".format(e) + "\n\n\n\n")
-            return link
+            return link + "\n"
 
 year = "2000"
 filePath = "../data/links_"+year+".csv"
