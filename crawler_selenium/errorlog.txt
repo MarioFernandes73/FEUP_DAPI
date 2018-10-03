@@ -1,0 +1,155 @@
+https://www.allmovie.com/movie/djomeh-v201734
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(2) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/american-experience-john-browns-holy-war-v201248
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(2) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/bimil-v230182
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section.related-highlights > div.related-movies.clearfix"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ --- NO RELATED MOVIES DETECTED, SKIPPING PARAMETER (no problem...)
+
+
+
+https://www.allmovie.com/movie/bimil-v230182
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(2) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/american-experience-nixons-china-game-v201219
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/benjamin-smoke-v193494
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/blossoms-of-fire-v201715
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/air-space-smithsonian-dreams-of-flight-beyond-the-moon-v203096
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/biography-harrison-ford-the-reluctant-hero-v214122
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/el-valley-centro-v193593
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/england%21-v210839
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section.related-highlights > div.related-movies.clearfix"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ --- NO RELATED MOVIES DETECTED, SKIPPING PARAMETER (no problem...)
+
+
+
+https://www.allmovie.com/movie/biography-don-knotts-nervous-laughter-v214117
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/ringling-brothers-kings-of-the-circus-v241081
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/the-directors-wolfgang-peterson-v264287
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/trouble-in-mind-psychosomatic-disorder-v205201
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/biography-ann-margret-sugar-and-spice-v214153
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/ju-on-v292156
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/biography-ernie-kovacs-please-stand-by-v214118
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/biography-shirley-maclaine-this-time-around-v214123
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/collectors-v268330
+Error: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#cmn_wrap > div.content-container > div.content > section.related-highlights > div.related-movies.clearfix"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.42.591088 (7b2b2dca23cca0862f674758c9a3933e685c27d5),platform=Windows NT 10.0.17134 x86_64)
+ --- NO RELATED MOVIES DETECTED, SKIPPING PARAMETER (no problem...)
+
+
+
+https://www.allmovie.com/movie/collectors-v268330
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
+https://www.allmovie.com/movie/eruption-of-mount-st-helens-v210542
+Error: local variable 'castContainers' referenced before assignment ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)
+
+
+
