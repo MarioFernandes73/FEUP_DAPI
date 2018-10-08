@@ -57,7 +57,7 @@ def processLink(link):
                 elif "Release Date" in detail.text:
                     releaseDate = trimDetail(detail.text[15:])[:12].replace("(","").strip()
                 elif "Run Time" in detail.text:
-                    duration = trimDetail(detail.text[11:])[:-6]
+                    duration = trimDetail(detail.text[11:])[:-5]
                 elif "Countries" in detail.text:
                     countries = trimDetail(detail.text[12:])
                 elif "MPAA Rating" in detail.text:
@@ -90,12 +90,14 @@ def processLink(link):
 
             actors = ""
             try:
-                castFirstContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(1) > h2")
-                if "Cast" in castFirstContainer.text:
+                castFirstContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(1)")
+                castFirstContainerH2 = castFirstContainer.find_element(By.TAG_NAME, "h2")
+                if "Cast" in castFirstContainerH2.text:
                     castContainers = castFirstContainer
                 else:
-                    castSecondContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(2) > h2")
-                    if "Cast" in castSecondContainer.text:
+                    castSecondContainer = driver.find_element(By.CSS_SELECTOR, "#cmn_wrap > div.content-container > div.content > section > div:nth-child(2)")
+                    castSecondContainerH2 = castSecondContainer.find_element(By.TAG_NAME, "h2")
+                    if "Cast" in castSecondContainerH2.text:
                         castContainers = castSecondContainer
 
                 castContainers = castContainers.find_elements(By.CSS_SELECTOR, ".cast_container")
@@ -110,7 +112,6 @@ def processLink(link):
                 print("Error: {0}".format(e))
                 errorlog.write(link + "\n" + "Error: {0}".format(e) + " ---- NO ACTORS DETECTED, SKIPPING PARAMETERS (no problem...)\n\n\n\n")
 
-
             actors = actors[:-3]
             return link + ", " + title + ", " + genres + ", " + subGenres + ", " + releaseDate + ", " + duration + ", " + countries + ", " + mpaaRating + ", " + allmovieRating + ", " + flags + ", " + directedBy + ", " + producedBy + ", " + releasedBy + ", " + moods + ", " + themes + ", " + keywords + ", " + attributes + ", " +  synopsis + ", " + actors + ", " + relatedMovies + "\n"
         except Exception as e:
@@ -118,7 +119,7 @@ def processLink(link):
             errorlog.write(link + "\n" + "Error: {0}".format(e) + "\n\n\n\n")
             return link + "\n"
 
-year = "2000"
+year = "2005"
 filePath = "../data/links_"+year+".csv"
 chromePath = r"C:\Users\Mario\Downloads\chromedriver_win32\chromedriver.exe"
 driver = webdriver.Chrome(chromePath)
