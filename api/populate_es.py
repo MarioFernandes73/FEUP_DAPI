@@ -1,6 +1,7 @@
 import pandas as pd
 from datetime import datetime
 from elasticsearch import Elasticsearch
+from elasticsearch import helpers
 import json
 
 countries_with_space = ["Hong Kong",  "South Korea", "New Zealand", "South Africa", "Ivory Coast" , "Burkina Faso", "Czech Republic", "Chad France", "Puerto Rico",
@@ -17,6 +18,13 @@ def checkForNaN(obj):
         return ""
     return obj
 
+def printIndexes(es):
+    print(es.indices.get_alias().keys())
+
+def printDocsInIndexes(es, docName):
+    res = es.search(index= docName, doc_type=docName, body = {'size' : 10000,'query': { 'match_all' : {}}})
+    printResult(res)
+
 def printResult(res):
     for item in res['hits']['hits']:
         print(item['_id'], item['_source'])
@@ -24,18 +32,20 @@ def printResult(res):
 def deleteAllIndexes(es):
     es.indices.delete("*")
 
-def indexGenres(es):
-    for i, genre in enumerate(allGenres):
-        indexGenre = {'genre':genre, 'moviesIds':[]}
-        es.index(index='genre', doc_type='genre', id=i, body=indexGenre)
 
+
+
+actionsGenres = list()
+
+for i, genre in enumerate(allGenres):
+    indexGenre = {'genre':genre, 'moviesIds':[]}
+    action = {"_index": "genre","_type": "genre","_id": i,"_source": indexGenre}
+    actionsGenres.append(action)
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
-deleteAllIndexes(es)
-indexGenres(es)
 
-
+actions = list()
 df = pd.read_csv("../data/links_all.csv", sep=",")
 for index, row in df.iterrows():
     title = row["title"]
@@ -84,37 +94,31 @@ for index, row in df.iterrows():
     genresRef = list()
     movieGenreList = genresArray + subGenresArray
     for genre in movieGenreList:
-        res = es.search(index="genre", doc_type="genre", body = {'query': { 'match' : {"genre":genre} } } )
-        for item in res['hits']['hits']:
-            genresRef.append(item['_id'])
-            if index not in item['_source']['moviesIds']:
-                newList = item['_source']['moviesIds'] + [index]
-                item['_source']['moviesIds'] = newList
-                j = {'doc' : item['_source'] }
-                es.update(index="genre", doc_type="genre", id=item['_id'], body=j )
+        for i, action in enumerate(actionsGenres):
+            if genre in action['_source']['genre']:
+                genresRef.append(action['_id'])
+                if index not in action['_source']['moviesIds']:
+                    newList = action['_source']['moviesIds'] + [index]
+                    actionsGenres[i] = {'_index': 'genre', '_type': 'genre', '_id':action['_id'] , '_source': {'genre': 'Action', 'moviesIds': newList}}
 
-    doc_movie = {}
+    doc_details = {"genres": genresRef, "releaseDate":releaseDate, "duration": duration, "countries":countriesArray, "mpaaRating":mpaaRating, "allmovieRating": allmovieRating, "flags":flags, "directedBy":directedBy, "producedBy": producedBy, "releasedBy":releasedBy, "moods":moodsArray, "themes":themesArray, "keywords":keywords, "attributes":attributes, "actors":actorsArray, "relatedMovies":relatedMoviesArray}
     doc_synopsis = {"synopsis": synopsis}
     doc_title = {"title": title}
 
-    es.index(index='title', doc_type='title', id=index, body=doc_title)
-    es.index(index='synopsis', doc_type='synopsis', id=index, body=doc_synopsis)
-
-    break
-
-
-#print( es.indices.get_alias().keys())
-
-#m2 = {'name': 'mario'}
-#v = json.dumps(m1)
-#j = json.loads(v)
-#print(j)
+    action_details = {"_index": "details","_type": "details","_id": index,"_source": doc_details }
+    action_title = {"_index": "title","_type": "title","_id": index,"_source": doc_title }
+    action_synopsis = {"_index": "synopsis","_type": "synopsis","_id": index,"_source": doc_synopsis }
+    
+    actions.append(action_title)
+    actions.append(action_synopsis)
+    actions.append(action_details)
 
 
-#es.index(index='sw', doc_type='people', id=3, body=j)
+#for action in actionsGenres:
+    #print(action)
+    #break
 
-res = es.search(index="genre", doc_type="genre", body = {'size' : 10000,'query': { 'match_all' : {}}})
-printResult(res)
+deleteAllIndexes(es)
+helpers.bulk(es, actionsGenres)
+helpers.bulk(es, actions)
 
-res = es.search(index="title", doc_type="title", body = {'size' : 10000,'query': { 'match_all' : {}}})
-printResult(res)
