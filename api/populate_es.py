@@ -17,6 +17,10 @@ def checkForNaN(obj):
         return ""
     return obj
 
+def printResult(res):
+    for item in res['hits']['hits']:
+        print(item['_id'], item['_source'])
+
 def deleteAllIndexes(es):
     es.indices.delete("*")
 
@@ -30,7 +34,8 @@ def indexGenres(es):
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
-
+#deleteAllIndexes(es)
+#indexGenres(es)
 
 
 df = pd.read_csv("../data/links_all.csv", sep=",")
@@ -81,6 +86,14 @@ for index, row in df.iterrows():
     doc_synopse = {}
     doc_genres = {}
     doc_title = {}
+    movieGenreList = genresArray + subGenresArray
+    for index, genre in enumerate(movieGenreList):
+        res = es.search(index="genre", doc_type="genre", body = {'query': { 'match' : {"genre":genre} } } )
+        for item in res['hits']['hits']:
+            newList = item['_source']['moviesIds'] + [index]
+            item['_source']['moviesIds'] = newList
+            j = {'doc' : item['_source'] }
+            es.update(index="genre", doc_type="genre", id=item['_id'], body=j )
     break
 
 
@@ -95,7 +108,5 @@ for index, row in df.iterrows():
 
 #es.index(index='sw', doc_type='people', id=3, body=j)
 
-res = es.search(index="genre", doc_type="genre", body = {'size' : 10000,'query': { 'match_all' : {}}})
-
-for item in res['hits']['hits']:
-    print(item['_id'], item['_source'])
+#res = es.search(index="genre", doc_type="genre", body = {'size' : 10000,'query': { 'match_all' : {}}})
+#printResult(res)
