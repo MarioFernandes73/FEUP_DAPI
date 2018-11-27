@@ -57,7 +57,9 @@ for index, row in df.iterrows():
         subGenresArray = row["subGenres"].split(" | ")
     releaseDate = datetime.strptime(row["releaseDate"], "%Y-%m-%d %H:%M:%S")
     duration = row["duration"]
-    if str(duration) != "nan":
+    if str(duration) == "nan":
+        duration = int(60)
+    elif str(duration) != "nan":
         duration = int(duration)
     countriesArray = list()
     countries = row["countries"]
@@ -69,7 +71,9 @@ for index, row in df.iterrows():
         countriesArray.extend(countries.split(" "))
     mpaaRating = checkForNaN(row["mpaaRating"])
     allmovieRating = row["allmovieRating"]
-    if str(allmovieRating) != "nan":
+    if str(allmovieRating) == "nan":
+        allmovieRating = int(5)
+    elif str(allmovieRating) != "nan":
         allmovieRating = int(allmovieRating)
     flags = checkForNaN(row["flags"])
     directedBy = checkForNaN(row["directedBy"])
