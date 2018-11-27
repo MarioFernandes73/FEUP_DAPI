@@ -87,10 +87,11 @@ for index, row in df.iterrows():
         res = es.search(index="genre", doc_type="genre", body = {'query': { 'match' : {"genre":genre} } } )
         for item in res['hits']['hits']:
             genresRef.append(item['_id'])
-            newList = item['_source']['moviesIds'] + [index]
-            item['_source']['moviesIds'] = newList
-            j = {'doc' : item['_source'] }
-            es.update(index="genre", doc_type="genre", id=item['_id'], body=j )
+            if index not in item['_source']['moviesIds']:
+                newList = item['_source']['moviesIds'] + [index]
+                item['_source']['moviesIds'] = newList
+                j = {'doc' : item['_source'] }
+                es.update(index="genre", doc_type="genre", id=item['_id'], body=j )
 
     doc_movie = {}
     doc_synopsis = {"synopsis": synopsis}
