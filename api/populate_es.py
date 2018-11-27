@@ -26,16 +26,14 @@ def deleteAllIndexes(es):
 
 def indexGenres(es):
     for i, genre in enumerate(allGenres):
-        indexGenre = {'genre':genre, "moviesIds":[]}
-        d = json.dumps(indexGenre)
-        j = json.loads(d)
-        es.index(index='genre', doc_type='genre', id=i, body=j)
+        indexGenre = {'genre':genre, 'moviesIds':[]}
+        es.index(index='genre', doc_type='genre', id=i, body=indexGenre)
 
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
-#deleteAllIndexes(es)
-#indexGenres(es)
+deleteAllIndexes(es)
+indexGenres(es)
 
 
 df = pd.read_csv("../data/links_all.csv", sep=",")
@@ -82,22 +80,28 @@ for index, row in df.iterrows():
     relatedMoviesArray = list()
     if str(row["relatedMovies"]) != "nan":
         relatedMoviesArray = row["relatedMovies"].split(" | ")
-    doc_movie = {}
-    doc_synopse = {}
-    doc_genres = {}
-    doc_title = {}
+
+    genresRef = list()
     movieGenreList = genresArray + subGenresArray
-    for index, genre in enumerate(movieGenreList):
+    for genre in movieGenreList:
         res = es.search(index="genre", doc_type="genre", body = {'query': { 'match' : {"genre":genre} } } )
         for item in res['hits']['hits']:
+            genresRef.append(item['_id'])
             newList = item['_source']['moviesIds'] + [index]
             item['_source']['moviesIds'] = newList
             j = {'doc' : item['_source'] }
             es.update(index="genre", doc_type="genre", id=item['_id'], body=j )
+
+    doc_movie = {}
+    doc_synopsis = {"synopsis": synopsis}
+    doc_title = {"title": title}
+
+    es.index(index='title', doc_type='title', id=index, body=doc_title)
+    es.index(index='synopsis', doc_type='synopsis', id=index, body=doc_synopsis)
+
     break
 
 
-#es.index(index='sw', doc_type='people', id=1, body="{\"ola\":\"oi\"}")
 #print( es.indices.get_alias().keys())
 
 #m2 = {'name': 'mario'}
@@ -108,5 +112,8 @@ for index, row in df.iterrows():
 
 #es.index(index='sw', doc_type='people', id=3, body=j)
 
-#res = es.search(index="genre", doc_type="genre", body = {'size' : 10000,'query': { 'match_all' : {}}})
-#printResult(res)
+res = es.search(index="genre", doc_type="genre", body = {'size' : 10000,'query': { 'match_all' : {}}})
+printResult(res)
+
+res = es.search(index="title", doc_type="title", body = {'size' : 10000,'query': { 'match_all' : {}}})
+printResult(res)
