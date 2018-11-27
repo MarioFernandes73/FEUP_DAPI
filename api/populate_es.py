@@ -42,6 +42,8 @@ for i, genre in enumerate(allGenres):
     action = {"_index": "genre","_type": "genre","_id": i,"_source": indexGenre}
     actionsGenres.append(action)
 
+
+
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 
@@ -103,7 +105,7 @@ for index, row in df.iterrows():
                 genresRef.append(action['_id'])
                 if index not in action['_source']['moviesIds']:
                     newList = action['_source']['moviesIds'] + [index]
-                    actionsGenres[i] = {'_index': 'genre', '_type': 'genre', '_id':action['_id'] , '_source': {'genre': 'Action', 'moviesIds': newList}}
+                    actionsGenres[i] = {'_index': 'genre', '_type': 'genre', '_id':action['_id'] , '_source': {'genre': action['_source']['genre'], 'moviesIds': newList}}
 
     doc_details = {"genres": genresRef, "releaseDate":releaseDate, "duration": duration, "countries":countriesArray, "mpaaRating":mpaaRating, "allmovieRating": allmovieRating, "flags":flags, "directedBy":directedBy, "producedBy": producedBy, "releasedBy":releasedBy, "moods":moodsArray, "themes":themesArray, "keywords":keywords, "attributes":attributes, "actors":actorsArray, "relatedMovies":relatedMoviesArray}
     doc_synopsis = {"synopsis": synopsis}
