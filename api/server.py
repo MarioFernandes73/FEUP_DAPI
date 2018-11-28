@@ -11,18 +11,24 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 # x = es.search(index="sw", body={"query": {"match": {'name':'Darth Vader'}}})
 # print(x)
 
-def countWords(parameter, index,string):
-    results = es.count(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
-    print("count",results)
+def searchWords(parameter, index,tokens):
+    string = " ".join(str(x) for x in tokens)
 
-def searchWords(parameter, index,string):
     results = es.search(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
     resultHits = results.get('hits').get('hits')
 
     length = len(resultHits)
-    for i in range(0, length-1):
+    results = es.count(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
+    print("count",results,'\n')
+    for i in range(0, length):
         hits = resultHits[i]
-        print("index:",hits.get("_index"), "  id:" , hits.get("_id"), "  ",parameter, ":" , hits.get("_source").get(parameter))
+        id = hits.get("_id")
+        print("index:", hits.get("_index"), "  id:" , id, "  ",parameter, ":" , hits.get("_source").get(parameter))
+        results = es.mtermvectors(index=index, doc_type=index, field_statistics='true',  fields=parameter, ids=id)
+        for j in tokens:
+            term_freq= results.get('docs')[0].get('term_vectors').get(parameter).get('terms').get(j.lower())
+            if term_freq != None:
+                print(j.lower(),term_freq,'\n')
 
 
 
@@ -31,25 +37,22 @@ while word_data != "TERMINATE":
     print('Enter your search:("TERMINATE" for exit)')
     word_data = input()
     word_data = re.sub('[^\w\s]','',word_data)
-    nltk_tokens = nltk.word_tokenize(word_data)
-    joinArray = " ".join(str(x) for x in nltk_tokens)
-    print(joinArray)
+    joinArray = nltk.word_tokenize(word_data)
 
     #procura as palavras no indice titulo
     searchWords("title", "title", joinArray)
     print('\n')
-
-
+    '''
     #procura palavras no indice genero 
     print("genre")
     searchWords("genre", "genre", joinArray)
     print('\n')
-    '''
+   
     #procura as palavras no indice synopsis
     print("synopsis")
     searchWords("synopsis", "synopsis", joinArray)
     print('\n')
-    '''
+  
 
     #procura as palavras no indice details
     #"genres releaseDate duration countries mpaaRating allmovieRating flags directedBy producedBy releasedBy moods themes keywords attributes actors relatedMovies" 
@@ -65,10 +68,10 @@ while word_data != "TERMINATE":
     searchWords("atributes", "details", joinArray)
     searchWords("actors", "details", joinArray)
     searchWords("relatedMovies", "details", joinArray)
+      '''
 
 
-    #results = es.mtermvectors(index='details', doc_type='details',field_statistics='true',  fields=['directedBy'], ids=['0'])
-    #results = es.termvectors(index='title', doc_type='title',fields=['title'])
+
                              
 
 
