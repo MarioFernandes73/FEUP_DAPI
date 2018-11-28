@@ -18,10 +18,11 @@ def countWords(parameter, index,string):
 def searchWords(parameter, index,string):
     results = es.search(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
     resultHits = results.get('hits').get('hits')
+
     length = len(resultHits)
-    for i in range(0,length-1):
+    for i in range(0, length-1):
         hits = resultHits[i]
-        print("index:",hits.get("_index"), "  id:" , hits.get("_id"),  "  source:" , hits.get("_source")  )
+        print("index:",hits.get("_index"), "  id:" , hits.get("_id"), "  ",parameter, ":" , hits.get("_source").get(parameter))
 
 
 
@@ -36,17 +37,19 @@ while word_data != "TERMINATE":
 
     #procura as palavras no indice titulo
     searchWords("title", "title", joinArray)
-'''
+    print('\n')
+
+
     #procura palavras no indice genero 
     print("genre")
     searchWords("genre", "genre", joinArray)
     print('\n')
-
-
+    '''
     #procura as palavras no indice synopsis
     print("synopsis")
     searchWords("synopsis", "synopsis", joinArray)
     print('\n')
+    '''
 
     #procura as palavras no indice details
     #"genres releaseDate duration countries mpaaRating allmovieRating flags directedBy producedBy releasedBy moods themes keywords attributes actors relatedMovies" 
@@ -66,7 +69,6 @@ while word_data != "TERMINATE":
 
     #results = es.mtermvectors(index='details', doc_type='details',field_statistics='true',  fields=['directedBy'], ids=['0'])
     #results = es.termvectors(index='title', doc_type='title',fields=['title'])
-    '''
                              
 
 
