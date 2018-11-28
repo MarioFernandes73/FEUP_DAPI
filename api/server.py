@@ -13,7 +13,16 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 def countWords(parameter, index,string):
     results = es.count(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
-    print("count",results.get('count'))
+    print("count",results)
+
+def searchWords(parameter, index,string):
+    results = es.search(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
+    resultHits = results.get('hits').get('hits')
+    length = len(resultHits)
+    for i in range(0,length-1):
+        hits = resultHits[i]
+        print("index:",hits.get("_index"), "  id:" , hits.get("_id"),  "  source:" , hits.get("_source")  )
+
 
 
 word_data = ""
@@ -25,39 +34,39 @@ while word_data != "TERMINATE":
     joinArray = " ".join(str(x) for x in nltk_tokens)
     print(joinArray)
 
-    #conta as palavras no indice titulo
-    countWords("title", "title", joinArray)
-
-    #conta as palavras no indice genero 
+    #procura as palavras no indice titulo
+    searchWords("title", "title", joinArray)
+'''
+    #procura palavras no indice genero 
     print("genre")
-    countWords("genre", "genre", joinArray)
+    searchWords("genre", "genre", joinArray)
     print('\n')
 
 
-    #conta as palavras no indice synopsis
+    #procura as palavras no indice synopsis
     print("synopsis")
-    countWords("synopsis", "synopsis", joinArray)
+    searchWords("synopsis", "synopsis", joinArray)
     print('\n')
 
-    #conta as palavras no indice details
+    #procura as palavras no indice details
     #"genres releaseDate duration countries mpaaRating allmovieRating flags directedBy producedBy releasedBy moods themes keywords attributes actors relatedMovies" 
     print("details")
-    countWords("countries", "details", joinArray)
-    countWords("directedBy", "details", joinArray)
-    countWords("producedBy", "details", joinArray)
-    countWords("directedBy", "details", joinArray)
-    countWords("releasedBy", "details", joinArray)
-    countWords("moods", "details", joinArray)
-    countWords("themes", "details", joinArray)
-    countWords("keywords", "details", joinArray)
-    countWords("atributes", "details", joinArray)
-    countWords("actors", "details", joinArray)
-    countWords("relatedMovies", "details", joinArray)
+    searchWords("countries", "details", joinArray)
+    searchWords("directedBy", "details", joinArray)
+    searchWords("producedBy", "details", joinArray)
+    searchWords("directedBy", "details", joinArray)
+    searchWords("releasedBy", "details", joinArray)
+    searchWords("moods", "details", joinArray)
+    searchWords("themes", "details", joinArray)
+    searchWords("keywords", "details", joinArray)
+    searchWords("atributes", "details", joinArray)
+    searchWords("actors", "details", joinArray)
+    searchWords("relatedMovies", "details", joinArray)
 
 
     #results = es.mtermvectors(index='details', doc_type='details',field_statistics='true',  fields=['directedBy'], ids=['0'])
     #results = es.termvectors(index='title', doc_type='title',fields=['title'])
-    
+    '''
                              
 
 
