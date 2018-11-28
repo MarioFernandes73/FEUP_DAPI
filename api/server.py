@@ -14,12 +14,16 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 def searchWords(parameter, index,tokens):
     string = " ".join(str(x) for x in tokens)
 
+    docs = es.search(index=index, doc_type=index, body={ "query": {'match_all' : {}}})
+    total_docs = docs.get('hits').get('total')
+    print(total_docs)
+
     results = es.search(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
     resultHits = results.get('hits').get('hits')
 
     length = len(resultHits)
-    results = es.count(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
-    print("count",results,'\n')
+    #results = es.count(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
+    #print("count",results,'\n')
     for i in range(0, length):
         hits = resultHits[i]
         id = hits.get("_id")
