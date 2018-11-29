@@ -12,7 +12,8 @@ def searchDB(userInput, intList):
                     "match_phrase":{
                         "title":{
                             "query":userInput,
-                            "boost":1000
+                            "boost":10,
+                            "_name":"title - full"
                         }
                     }
                 },
@@ -21,14 +22,16 @@ def searchDB(userInput, intList):
                         "query":userInput,
                         "type":"phrase",
                         "fields":["genres","subGenres"],
-                        "boost":10
+                        "boost":10,
+                        "_name":"genres and subGenres - full"
                     }
                 },
                 {
                     "match":{
                         "title":{
                             "query":userInput,
-                            "boost":7
+                            "boost":7,
+                            "_name":"title - partial"
                         }
                     }
                 },
@@ -36,7 +39,8 @@ def searchDB(userInput, intList):
                     "match_phrase":{
                         "actors":{
                             "query":userInput,
-                            "boost":10
+                            "boost":10,
+                            "_name":"actors - full"
                         }
                     }
                 },
@@ -44,7 +48,8 @@ def searchDB(userInput, intList):
                     "match":{
                         "synopsis":{
                             "query":userInput,
-                            "boost":1
+                            "boost":1,
+                            "_name":"synopsis - partial"
                         }
                     }
                 },
@@ -52,38 +57,24 @@ def searchDB(userInput, intList):
                     "multi_match":{
                         "query":userInput,
                         "fields":["countries","directedBy","producedBy","releasedBy"],
-                        "boost":10
+                        "boost":10,
+                        "_name":"countries and directedBy and producedBy and releasedBy - partial"
                     }
                 },
                 {
                     "multi_match":{
                         "query":userInput,
                         "fields":["moods","themes","keywords","attributes","mpaaRating"],
-                        "boost":10
-                    }
-                },
-                {
-                    "range":{
-                        "releaseDate":{
-                            "lte":"2010",
-                            "gte":"2010",
-                            "format":"yyyy",
-                            "boost":10
-                        }
-                    }
-                },
-                {
-                    "multi_match":{
-                        "query":5,
-                        "fields":["duration","allmovieRating"],
-                        "boost":10
+                        "boost":10,
+                        "_name":"moods and themes and keywords and attributes and mpaaRating - partial"
                     }
                 },
                 {
                     "wildcard":{
                         "title":{
                             "wildcard":"*"+userInput+"*",
-                            "boost":10
+                            "boost":10,
+                            "_name":"title - wildcard"
                         }
                     }
                 },
@@ -91,29 +82,43 @@ def searchDB(userInput, intList):
                     "match":{
                         "relatedMovies":{
                             "query":userInput,
-                            "boost":10
+                            "boost":10,
+                            "_name":"relatedMovies - partial"
                         }
                     }
                 }
             ]
 
-    appendConditions = list()
     for number in intList:
-        appendConditions.append({"range":{
+        conditions.append({"range":{
             "releaseDate":{
-                "lte":number,
-                "gte":number,
+                "lte":str(number)+"||/y",
+                "gte":str(number)+"||/y",
                 "format":"yyyy",
-                "boost":10
+                "boost":100,
+                "_name":"releaseDate - year: " + str(number)
                 }}})
 
-        appendConditions.append({"multi_match":{
-            "query":number,
-            "fields":["duration","allmovieRating"],
-            "boost":10
-            }})
-
-    conditions.append(appendConditions)
+        field = ""
+        if 0 <= number <= 10:
+            numberParam1 = number
+            numberParam2 = number
+            field = "allmovieRating"
+            queryName = "allmovieRating with rating of " + str(number)
+        else:
+            numberParam1 = number - 10
+            numberParam2 = number + 10
+            field = "duration"
+            queryName = "movie with duration between " + str(numberParam1) + " and " + str(numberParam2)
+        
+        conditions.append({"range":{
+            field:{
+                "gte":numberParam1,
+                "lte":numberParam2,
+                "boost":100,
+                "_name": queryName
+            }
+        }})
 
     es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
     docs = es.search(index = "movie", doc_type = "movie", body = {
@@ -122,31 +127,18 @@ def searchDB(userInput, intList):
             "should": conditions
         }
     }
-}, size = 10)
+}, size = 1)
 
     for doc in docs['hits']['hits']:
-        print(doc['_score'])
-        print(doc['_source']['title'])
-    
-    #results = es.count(index=index, doc_type=index, body={ "query": {"match" : {parameter : string}}})
-    #print("count",results,'\n')
-    #for i in range(0, length):
-        #hits = resultHits[i]
-        #id = hits.get("_id")
-        #print("index:", hits.get("_index"), "  id:" , id, "  ",parameter, ":" , hits.get("_source").get(parameter))
-        #results = es.mtermvectors(index=index, doc_type=index, field_statistics='true',  fields=parameter, ids=id)
-        #for j in tokens:
-            #term_freq= results.get('docs')[0].get('term_vectors').get(parameter).get('terms').get(j.lower())
-            #if term_freq != None:
-                #print(j.lower(),term_freq,'\n')
+        print(doc['_id'] + " - " + doc['_source']['title'] + " because of " + str(doc['matched_queries']))
 
 
-
-userInput = ""
-while userInput != "q":
+while True:
     try:
         userInput = input('Search the database ("q" to quit):')
         intList = [int(s) for s in userInput.split() if s.isdigit()]
+        if userInput == "q":
+            sys.exit()
         searchDB(userInput,intList)
     except KeyboardInterrupt:
         sys.exit()
