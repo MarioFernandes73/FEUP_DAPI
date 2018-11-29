@@ -48,7 +48,7 @@ def searchDB(userInput, intList):
                     "match":{
                         "synopsis":{
                             "query":userInput,
-                            "boost":1,
+                            "boost":10,
                             "_name":"synopsis - partial"
                         }
                     }
@@ -57,7 +57,7 @@ def searchDB(userInput, intList):
                     "multi_match":{
                         "query":userInput,
                         "fields":["countries","directedBy","producedBy","releasedBy"],
-                        "boost":10,
+                        "boost":4,
                         "_name":"countries and directedBy and producedBy and releasedBy - partial"
                     }
                 },
@@ -65,7 +65,7 @@ def searchDB(userInput, intList):
                     "multi_match":{
                         "query":userInput,
                         "fields":["moods","themes","keywords","attributes","mpaaRating"],
-                        "boost":10,
+                        "boost":4,
                         "_name":"moods and themes and keywords and attributes and mpaaRating - partial"
                     }
                 },
@@ -82,7 +82,7 @@ def searchDB(userInput, intList):
                     "match":{
                         "relatedMovies":{
                             "query":userInput,
-                            "boost":10,
+                            "boost":7,
                             "_name":"relatedMovies - partial"
                         }
                     }
