@@ -127,10 +127,10 @@ def searchDB(userInput, intList):
             "should": conditions
         }
     }
-}, size = 1)
+}, size = 10)
 
     for doc in docs['hits']['hits']:
-        print(doc['_id'] + " - " + doc['_source']['title'] + " because of " + str(doc['matched_queries']))
+        print("id: " + doc['_id'] + " with score of " + str(doc['_score']) + " - '" + doc['_source']['title'] + "' because of " + str(doc['matched_queries']))
 
 
 while True:
