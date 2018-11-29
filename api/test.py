@@ -62,8 +62,8 @@ docs = es.search(index = "movie", doc_type = "movie", body = {
                 {
                     "match_phrase":{
                         "title":{
-                            "query":"Eternal Blood",
-                            "boost":10
+                            "query":"Harry Potter and the Sorcerers Stone",
+                            "boost":1000
                         }
                     }
                 },
