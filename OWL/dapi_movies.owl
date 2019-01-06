@@ -59,9 +59,6 @@
         <Class IRI="#Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Studio"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasActor"/>
     </Declaration>
     <Declaration>
@@ -93,9 +90,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasRating"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasReleaser"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasStaff"/>
@@ -138,9 +132,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isRelated"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isReleaserIn"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isStaffIn"/>
@@ -319,32 +310,32 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasActor"/>
         <ObjectProperty IRI="#isActor"/>
+        <ObjectProperty IRI="#hasActor"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasAttribute"/>
         <ObjectProperty IRI="#isAttributeIn"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasDirector"/>
         <ObjectProperty IRI="#isDirectorIn"/>
+        <ObjectProperty IRI="#hasDirector"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isDurationIn"/>
         <ObjectProperty IRI="#hasDuration"/>
+        <ObjectProperty IRI="#isDurationIn"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#isCountryFilmedIn"/>
         <ObjectProperty IRI="#hasFilmedCountry"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasFlag"/>
         <ObjectProperty IRI="#isFlagIn"/>
+        <ObjectProperty IRI="#hasFlag"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasGenre"/>
         <ObjectProperty IRI="#isGenreIn"/>
+        <ObjectProperty IRI="#hasGenre"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasKeyword"/>
@@ -355,20 +346,16 @@
         <ObjectProperty IRI="#isMoodIn"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasProducer"/>
         <ObjectProperty IRI="#isProducerIn"/>
+        <ObjectProperty IRI="#hasProducer"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasRating"/>
         <ObjectProperty IRI="#isRatingIn"/>
+        <ObjectProperty IRI="#hasRating"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasReleaser"/>
-        <ObjectProperty IRI="#isReleaserIn"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#isStaffIn"/>
         <ObjectProperty IRI="#hasStaff"/>
+        <ObjectProperty IRI="#isStaffIn"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#isThemeIn"/>
@@ -412,10 +399,6 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasRating"/>
-        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasReleaser"/>
         <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -459,20 +442,12 @@
         <Class IRI="#OWLClass_12e6b9a4_08f6_4842_9cf6_42b4ef4e3981"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isProducerIn"/>
-        <Class IRI="#Studio"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isRatingIn"/>
         <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isRelated"/>
         <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isReleaserIn"/>
-        <Class IRI="#Studio"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isStaffIn"/>
@@ -515,16 +490,8 @@
         <Class IRI="#OWLClass_12e6b9a4_08f6_4842_9cf6_42b4ef4e3981"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasProducer"/>
-        <Class IRI="#Studio"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasRating"/>
         <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasReleaser"/>
-        <Class IRI="#Studio"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasStaff"/>
@@ -576,10 +543,6 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isRelated"/>
-        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isReleaserIn"/>
         <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
