@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException
 import time
 
 with open("links.csv", "w") as links: 
-    chrome_path = r"C:\Users\Mario\Downloads\chromedriver_win32\chromedriver.exe"
+    chromePath = r"C:\Users\lazar\Desktop\lazaropc\chromedriver.exe"
     driver = webdriver.Chrome(chrome_path)
     driver.get("https://www.allmovie.com/advanced-search")
     time.sleep(5)

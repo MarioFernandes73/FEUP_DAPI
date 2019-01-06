@@ -1,0 +1,768 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/mario/ontologies/2019/0/untitled-ontology-20"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/mario/ontologies/2019/0/untitled-ontology-20">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Actor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Director"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_12e6b9a4_08f6_4842_9cf6_42b4ef4e3981"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_53bb9667_f3d6_4b2d_b629_7593f7a33481"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_bf46a63f_a49f_49a1_abe1_c4e34ec5e1dc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_d84f47b9_87ce_4745_9c26_4090089044dc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Studio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasActor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAttribute"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDirector"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDuration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFilmedCountry"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFlag"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGenre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKeyword"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMood"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProducer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRating"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasReleaser"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStaff"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTheme"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isActor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAttributeIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCountryFilmedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDirectorIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDurationIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isFlagIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isGenreIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isKeywordIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMoodIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isProducerIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRatingIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRelated"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isReleaserIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isStaffIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isThemeIn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_1e50ae84_3e54_4cb8_8946_4eb8522c6c04"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_2f137104_e44a_4d85_8b7e_c23601943e12"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_2f23119e_1ff9_44de_a752_2b92bcd3e0d6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_378e33a4_da01_48d5_a403_a39faa1b3709"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_517475a4_7a43_4e75_9636_c229ed0207c5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_6d7f5def_5b99_410e_aa10_6307d543a0ea"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_7136907c_8f78_4735_9a0f_528e6c3b4382"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_7e632ec6_3272_44ff_91d3_0c8d8e1c8ecf"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_848daef5_8220_4cf3_98a7_cb259385e417"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_90d8c37d_987b_447e_9b02_73fab623548c"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_a4ad1fa1_70c2_46a9_b8ca_84a9fa0c7333"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_ac9f947a_2bbf_43ad_8168_f16af0eecad7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_b1b34be7_f098_418a_a180_5125c8bfe283"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_b49ba9b3_0798_4db8_943f_176838bcbde1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_b94dedce_a022_4dbf_aef3_208db1b6014a"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_bd360661_00e2_4b7f_8f5f_667c621908d2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_c0f65702_f92b_496e_ac2d_719758dcf736"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_c64649cf_c130_4f6b_8d4b_26b81b7c24e4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_ceffd0c8_4def_49e9_8b99_79f2c7d9d7de"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_d44b0f41_3f2a_4452_b583_3285558d1e4c"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_e788193d_1c84_42c3_b4db_8c5cde69617e"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OWLNamedIndividual_f4f0d318_4765_4d42_b734_e2e3b3da0166"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Actor"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Director"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_1e50ae84_3e54_4cb8_8946_4eb8522c6c04"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_2f137104_e44a_4d85_8b7e_c23601943e12"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_2f23119e_1ff9_44de_a752_2b92bcd3e0d6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_378e33a4_da01_48d5_a403_a39faa1b3709"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_517475a4_7a43_4e75_9636_c229ed0207c5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_6d7f5def_5b99_410e_aa10_6307d543a0ea"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_7136907c_8f78_4735_9a0f_528e6c3b4382"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_7e632ec6_3272_44ff_91d3_0c8d8e1c8ecf"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_848daef5_8220_4cf3_98a7_cb259385e417"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_90d8c37d_987b_447e_9b02_73fab623548c"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_a4ad1fa1_70c2_46a9_b8ca_84a9fa0c7333"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_ac9f947a_2bbf_43ad_8168_f16af0eecad7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_b1b34be7_f098_418a_a180_5125c8bfe283"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_b1b34be7_f098_418a_a180_5125c8bfe283"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_b49ba9b3_0798_4db8_943f_176838bcbde1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_b94dedce_a022_4dbf_aef3_208db1b6014a"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_bd360661_00e2_4b7f_8f5f_667c621908d2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_c0f65702_f92b_496e_ac2d_719758dcf736"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_c64649cf_c130_4f6b_8d4b_26b81b7c24e4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_ceffd0c8_4def_49e9_8b99_79f2c7d9d7de"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_d44b0f41_3f2a_4452_b583_3285558d1e4c"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_e788193d_1c84_42c3_b4db_8c5cde69617e"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+        <NamedIndividual IRI="#OWLNamedIndividual_f4f0d318_4765_4d42_b734_e2e3b3da0166"/>
+    </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTheme"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasActor"/>
+        <ObjectProperty IRI="#isActor"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <ObjectProperty IRI="#isAttributeIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasDirector"/>
+        <ObjectProperty IRI="#isDirectorIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isDurationIn"/>
+        <ObjectProperty IRI="#hasDuration"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isCountryFilmedIn"/>
+        <ObjectProperty IRI="#hasFilmedCountry"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasFlag"/>
+        <ObjectProperty IRI="#isFlagIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasGenre"/>
+        <ObjectProperty IRI="#isGenreIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <ObjectProperty IRI="#isKeywordIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMood"/>
+        <ObjectProperty IRI="#isMoodIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasProducer"/>
+        <ObjectProperty IRI="#isProducerIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRating"/>
+        <ObjectProperty IRI="#isRatingIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasReleaser"/>
+        <ObjectProperty IRI="#isReleaserIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isStaffIn"/>
+        <ObjectProperty IRI="#hasStaff"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isThemeIn"/>
+        <ObjectProperty IRI="#hasTheme"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasActor"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDirector"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDuration"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFlag"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGenre"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMood"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasProducer"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRating"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasReleaser"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStaff"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTheme"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isActor"/>
+        <Class IRI="#Actor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAttributeIn"/>
+        <Class IRI="#OWLClass_53bb9667_f3d6_4b2d_b629_7593f7a33481"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDirectorIn"/>
+        <Class IRI="#Director"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDurationIn"/>
+        <Class IRI="#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isFlagIn"/>
+        <Class IRI="#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isGenreIn"/>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isKeywordIn"/>
+        <Class IRI="#OWLClass_bf46a63f_a49f_49a1_abe1_c4e34ec5e1dc"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMoodIn"/>
+        <Class IRI="#OWLClass_12e6b9a4_08f6_4842_9cf6_42b4ef4e3981"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isProducerIn"/>
+        <Class IRI="#Studio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRatingIn"/>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isRelated"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isReleaserIn"/>
+        <Class IRI="#Studio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isStaffIn"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isThemeIn"/>
+        <Class IRI="#OWLClass_d84f47b9_87ce_4745_9c26_4090089044dc"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasActor"/>
+        <Class IRI="#Actor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <Class IRI="#OWLClass_53bb9667_f3d6_4b2d_b629_7593f7a33481"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDirector"/>
+        <Class IRI="#Director"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDuration"/>
+        <Class IRI="#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFlag"/>
+        <Class IRI="#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGenre"/>
+        <Class IRI="#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <Class IRI="#OWLClass_bf46a63f_a49f_49a1_abe1_c4e34ec5e1dc"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMood"/>
+        <Class IRI="#OWLClass_12e6b9a4_08f6_4842_9cf6_42b4ef4e3981"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProducer"/>
+        <Class IRI="#Studio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRating"/>
+        <Class IRI="#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasReleaser"/>
+        <Class IRI="#Studio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStaff"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTheme"/>
+        <Class IRI="#OWLClass_d84f47b9_87ce_4745_9c26_4090089044dc"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isActor"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAttributeIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDirectorIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDurationIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isFlagIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isGenreIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isKeywordIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMoodIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isProducerIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRatingIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isRelated"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isReleaserIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isStaffIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isThemeIn"/>
+        <Class IRI="#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_0f8ea218_01dc_408e_83c7_067e4bd54608</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Flags</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_12e6b9a4_08f6_4842_9cf6_42b4ef4e3981</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Moods</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_53bb9667_f3d6_4b2d_b629_7593f7a33481</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Attributes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_63bb6c3c_0741_4ec9_a2cf_64ff5fb7846d</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_8b5dc19d_8c0d_4588_b5ea_4712f29ccf1c</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Genres</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_bf46a63f_a49f_49a1_abe1_c4e34ec5e1dc</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Keywords</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_d84f47b9_87ce_4745_9c26_4090089044dc</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Themes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_dd97e4c4_afb6_475a_993f_813db08dc951</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Rating</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLClass_f6badb70_7355_474e_8b40_bacb2547aab4</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Duration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_1e50ae84_3e54_4cb8_8946_4eb8522c6c04</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Horror</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_2f137104_e44a_4d85_8b7e_c23601943e12</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Thriller</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_2f23119e_1ff9_44de_a752_2b92bcd3e0d6</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Awful</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_378e33a4_da01_48d5_a403_a39faa1b3709</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Children</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_517475a4_7a43_4e75_9636_c229ed0207c5</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Western</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_6d7f5def_5b99_410e_aa10_6307d543a0ea</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Musical</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_7136907c_8f78_4735_9a0f_528e6c3b4382</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Adventure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_7e632ec6_3272_44ff_91d3_0c8d8e1c8ecf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Teen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_848daef5_8220_4cf3_98a7_cb259385e417</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The_Matrix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_90d8c37d_987b_447e_9b02_73fab623548c</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Drama</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_a4ad1fa1_70c2_46a9_b8ca_84a9fa0c7333</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Bad</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_ac9f947a_2bbf_43ad_8168_f16af0eecad7</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">War</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_b1b34be7_f098_418a_a180_5125c8bfe283</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Medium</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_b49ba9b3_0798_4db8_943f_176838bcbde1</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_b94dedce_a022_4dbf_aef3_208db1b6014a</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Long</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_bd360661_00e2_4b7f_8f5f_667c621908d2</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Action</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_c0f65702_f92b_496e_ac2d_719758dcf736</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Short</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_c64649cf_c130_4f6b_8d4b_26b81b7c24e4</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Comedy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_ceffd0c8_4def_49e9_8b99_79f2c7d9d7de</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">ScienceFiction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_d44b0f41_3f2a_4452_b583_3285558d1e4c</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Adult</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_e788193d_1c84_42c3_b4db_8c5cde69617e</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Good</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#OWLNamedIndividual_f4f0d318_4765_4d42_b734_e2e3b3da0166</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Excellent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasDuration</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasDuration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasRating</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasRating</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isRatingIn</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">IsRatingIn</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

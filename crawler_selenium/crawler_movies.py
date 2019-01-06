@@ -119,9 +119,9 @@ def processLink(link):
             errorlog.write(link + "\n" + "Error: {0}".format(e) + "\n\n\n\n")
             return link + "\n"
 
-year = "2005"
+year = "2011"
 filePath = "../data/links_"+year+".csv"
-chromePath = r"C:\Users\Mario\Downloads\chromedriver_win32\chromedriver.exe"
+chromePath = r"C:\Users\lazar\Desktop\lazaropc\chromedriver.exe"
 driver = webdriver.Chrome(chromePath)
 
 setupBrowser(driver)
@@ -138,3 +138,4 @@ for index, link in enumerate(links):
         print("Link " + link + " already processed, skipping...")
 
 print("all done! :D")
+print (time.strftime("%H:%M:%S"))
