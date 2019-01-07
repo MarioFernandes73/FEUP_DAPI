@@ -1,0 +1,1 @@
+{"Collections":[{"sheetName":"RapidMiner Data","startColumn":"A","endColumn":"A","startRow":"2","endRow":"1266","comment":"","rule":"Individual: @A*(rdfs:label)\nTypes: Actor and Director","active":true}]}
