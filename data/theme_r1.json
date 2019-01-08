@@ -1,0 +1,1 @@
+{"Collections":[{"sheetName":"RapidMiner Data","startColumn":"B","endColumn":"D","startRow":"2","endRow":"3024","comment":"","rule":"Individual: @A*(rdfs:label)\nFacts: hasTheme @C*","active":true},{"sheetName":"RapidMiner Data","startColumn":"B","endColumn":"D","startRow":"1","endRow":"3024","comment":"","rule":"Individual: @C*(rdfs:label)\nFacts: isThemeIn @A*","active":true}]}
